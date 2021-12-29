@@ -1,15 +1,12 @@
 import React, { Dispatch, FC, useCallback } from "react";
 import { Container, NoteIcon, ProfileIcon, ProjectIcon } from "./styles";
 
-interface ILapTopHeader {
+interface ILapTopBar {
   setProjectWindow: Dispatch<React.SetStateAction<boolean>>;
   setProfileWindow: Dispatch<React.SetStateAction<boolean>>;
 }
 
-const LapTopHeader: FC<ILapTopHeader> = ({
-  setProjectWindow,
-  setProfileWindow,
-}) => {
+const LapTopBar: FC<ILapTopBar> = ({ setProjectWindow, setProfileWindow }) => {
   const onProjectsClick = useCallback(() => {
     setProjectWindow((state) => !state);
   }, []);
@@ -27,4 +24,4 @@ const LapTopHeader: FC<ILapTopHeader> = ({
   );
 };
 
-export default LapTopHeader;
+export default LapTopBar;

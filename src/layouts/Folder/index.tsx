@@ -5,17 +5,24 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { FC, ReactNode, useCallback, useEffect, useState } from "react";
+import React, {
+  Dispatch,
+  FC,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 import { Container, Navigator, ProjectsWrapper } from "./styles";
 
 interface IFolder {
   children: ReactNode[];
+  folderWindow: boolean;
+  setFolderWindow: Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Folder: FC<IFolder> = ({ children }) => {
-  const [folderWindow, setFolderWindow] = useState(false);
-
-  const onCloseFolderWindow = useCallback(() => {
+const Folder: FC<IFolder> = ({ children, folderWindow, setFolderWindow }) => {
+  const onCloseClick = useCallback(() => {
     setFolderWindow(false);
   }, []);
 
@@ -47,7 +54,7 @@ const Folder: FC<IFolder> = ({ children }) => {
             <li>
               <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
             </li>
-            <li onClick={onCloseFolderWindow}>
+            <li onClick={onCloseClick}>
               <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
             </li>
           </ul>

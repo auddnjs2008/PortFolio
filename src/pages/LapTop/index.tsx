@@ -1,4 +1,4 @@
-import LapTopHeader from "@components/LapTopHeader";
+import LapTopBar from "@components/LapTopBar";
 import Projects from "@components/Projects";
 
 import React, { useState } from "react";
@@ -10,11 +10,18 @@ const LapTop = () => {
 
   return (
     <Container>
-      <LapTopHeader
+      <LapTopBar
         setProjectWindow={setProjectWindow}
         setProfileWindow={setProfileWindow}
-      ></LapTopHeader>
-      {projectWindow ? <Projects></Projects> : ""}
+      ></LapTopBar>
+      {projectWindow ? (
+        <Projects
+          projectWindow={projectWindow}
+          setProjectWindow={setProjectWindow}
+        ></Projects>
+      ) : (
+        ""
+      )}
     </Container>
   );
 };
