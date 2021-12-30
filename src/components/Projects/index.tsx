@@ -1,8 +1,15 @@
+import ProjectSlider from "@components/ProjectSlider";
 import Folder from "@layouts/Folder";
 import profileData from "@utils/json/profileData";
-import React, { Dispatch, FC } from "react";
+import React, { Dispatch, FC, useCallback, useRef } from "react";
 import Scrollbars from "react-custom-scrollbars";
-import { Container, Navigator, Section } from "./styles";
+import {
+  Container,
+  Navigator,
+  PortFolioLi,
+  PortFolioUl,
+  Section,
+} from "./styles";
 
 interface IProjects {
   projectWindow: boolean;
@@ -10,21 +17,36 @@ interface IProjects {
 }
 
 const Projects: FC<IProjects> = ({ projectWindow, setProjectWindow }) => {
+  const scrollBar = useRef(null);
+  const sectionBox = useRef<HTMLLIElement>(null);
+
+  const onMenuClick = useCallback((e) => {
+    const multipleNum = Number(e.target.id) - 1;
+    console.log((sectionBox.current as any).clientHeight);
+    console.log((sectionBox.current as any).offsetHeight);
+
+    if (scrollBar.current && sectionBox.current) {
+      (scrollBar.current as any).scrollTop(
+        sectionBox.current.clientHeight * multipleNum
+      );
+    }
+  }, []);
+
   return projectWindow ? (
     <Folder folderWindow={projectWindow} setFolderWindow={setProjectWindow}>
       <Container>
-        <ul>
-          <Scrollbars autoHide={true}>
-            {profileData.map((item) => (
-              <li>
+        <PortFolioUl>
+          <Scrollbars autoHide={true} ref={scrollBar}>
+            {profileData.map((item, index) => (
+              <PortFolioLi key={index} ref={sectionBox}>
                 <Section>
                   <header>
                     <h2>{item.title}</h2>
                     <h3>{item.subtitle}</h3>
                   </header>
                   <div className="section__main">
-                    <img src={item.imgSrc} />
-                    <p className="main__content">
+                    <ProjectSlider imgSrces={item.imgSrc}></ProjectSlider>
+                    <div className="main__content">
                       {item.contentOne}
                       <br></br>
                       <br></br>
@@ -43,7 +65,9 @@ const Projects: FC<IProjects> = ({ projectWindow, setProjectWindow }) => {
                         </div>
                         <div>
                           <h5>✔Domain</h5>
-                          <a href={"https://" + item.webpage}>{item.webpage}</a>
+                          <a href={"https://" + item.webpage} target="_blank">
+                            {item.webpage}
+                          </a>
                         </div>
                         <div>
                           <h5>✔Front-end</h5>
@@ -58,15 +82,31 @@ const Projects: FC<IProjects> = ({ projectWindow, setProjectWindow }) => {
                           <span>{item.deployment}</span>
                         </div>
                       </div>
-                    </p>
+                    </div>
                   </div>
                 </Section>
-              </li>
+              </PortFolioLi>
             ))}
           </Scrollbars>
-        </ul>
+        </PortFolioUl>
       </Container>
-      <Navigator></Navigator>
+      <Navigator>
+        <div className="navigator__title">빠른찾기</div>
+        <ul>
+          <li id="1" onClick={onMenuClick}>
+            병원예약 웹사이트
+          </li>
+          <li id="2" onClick={onMenuClick}>
+            영화정보 웹사이트
+          </li>
+          <li id="3" onClick={onMenuClick}>
+            포켓몬 웹 게임
+          </li>
+          <li id="4" onClick={onMenuClick}>
+            웹 실시간 채팅 서비스
+          </li>
+        </ul>
+      </Navigator>
     </Folder>
   ) : null;
 };
