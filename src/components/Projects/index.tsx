@@ -24,10 +24,10 @@ const Projects: FC<IProjects> = ({ projectWindow, setProjectWindow }) => {
     const multipleNum = Number(e.target.id) - 1;
     console.log((sectionBox.current as any).clientHeight);
     console.log((sectionBox.current as any).offsetHeight);
-
+    console.log(sectionBox);
     if (scrollBar.current && sectionBox.current) {
       (scrollBar.current as any).scrollTop(
-        sectionBox.current.clientHeight * multipleNum
+        (sectionBox.current.clientHeight + 50) * multipleNum
       );
     }
   }, []);

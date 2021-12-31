@@ -11,6 +11,7 @@ import React, {
   ReactNode,
   useCallback,
   useEffect,
+  useRef,
   useState,
 } from "react";
 import { Container, Navigator, ProjectsWrapper } from "./styles";
@@ -22,12 +23,21 @@ interface IFolder {
 }
 
 const Folder: FC<IFolder> = ({ children, folderWindow, setFolderWindow }) => {
+  const folderContainer = useRef<HTMLDivElement>(null);
+
   const onCloseClick = useCallback(() => {
-    setFolderWindow(false);
-  }, []);
+    if (folderContainer && folderContainer.current) {
+      folderContainer.current.classList.add("closeFolder");
+      console.log(folderContainer.current.style.animation);
+    }
+    setTimeout(() => {
+      setFolderWindow(false);
+      folderContainer.current?.classList.remove("closeFolder");
+    }, 800);
+  }, [folderContainer]);
 
   return folderWindow ? (
-    <Container>
+    <Container ref={folderContainer}>
       <Navigator>
         <header>
           <div></div>

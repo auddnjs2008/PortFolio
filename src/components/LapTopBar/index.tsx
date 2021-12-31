@@ -19,7 +19,7 @@ const LapTopBar: FC<ILapTopBar> = ({ setProjectWindow, setProfileWindow }) => {
     <Container>
       <ProjectIcon onClick={onProjectsClick}></ProjectIcon>
       <NoteIcon></NoteIcon>
-      <ProfileIcon></ProfileIcon>
+      <ProfileIcon onClick={onProfileClick}></ProfileIcon>
     </Container>
   );
 };

@@ -18,11 +18,12 @@ export const PortFolioLi = styled.li`
   width: 80%;
   margin: 0 auto;
   background-color: #474646;
+  margin-bottom: 50px;
+  height: 800px;
 `;
 
 export const Section = styled.section`
   padding: 10px;
-  margin-bottom: 50px;
   color: #dfe6e9;
 
   header {
@@ -89,6 +90,7 @@ export const Navigator = styled.div`
     padding-left: 5px;
     li {
       margin-bottom: 20px;
+
       cursor: pointer;
     }
   }

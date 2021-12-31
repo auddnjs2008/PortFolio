@@ -1,4 +1,5 @@
 import LapTopBar from "@components/LapTopBar";
+import Profile from "@components/Profile";
 import Projects from "@components/Projects";
 
 import React, { useState } from "react";
@@ -19,6 +20,14 @@ const LapTop = () => {
           projectWindow={projectWindow}
           setProjectWindow={setProjectWindow}
         ></Projects>
+      ) : (
+        ""
+      )}
+      {profileWindow ? (
+        <Profile
+          profileWindow={profileWindow}
+          setProfileWindow={setProfileWindow}
+        ></Profile>
       ) : (
         ""
       )}

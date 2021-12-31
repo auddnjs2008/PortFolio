@@ -19,8 +19,26 @@ export const Container = styled.div`
       transform: scale(1);
     }
   }
+  @keyframes windowClose {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+  }
 
   animation: window 0.8s ease-in-out;
+
+  &.closeFolder {
+    animation: windowClose 0.8s ease-in-out;
+  }
 `;
 
 export const Navigator = styled.div`
