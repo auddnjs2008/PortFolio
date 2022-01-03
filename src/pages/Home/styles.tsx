@@ -9,4 +9,7 @@ export const Container = styled.div`
   background-repeat: no-repeat;
 
   background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
