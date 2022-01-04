@@ -1,8 +1,9 @@
 import ProjectSlider from "@components/ProjectSlider";
 import Folder from "@layouts/Folder";
-import profileData from "@utils/json/profileData";
+import projectData from "@utils/json/projectData";
 import React, { Dispatch, FC, useCallback, useRef } from "react";
 import Scrollbars from "react-custom-scrollbars";
+import { IBook } from "types";
 import {
   Container,
   Navigator,
@@ -22,9 +23,6 @@ const Projects: FC<IProjects> = ({ projectWindow, setProjectWindow }) => {
 
   const onMenuClick = useCallback((e) => {
     const multipleNum = Number(e.target.id) - 1;
-    console.log((sectionBox.current as any).clientHeight);
-    console.log((sectionBox.current as any).offsetHeight);
-    console.log(sectionBox);
     if (scrollBar.current && sectionBox.current) {
       (scrollBar.current as any).scrollTop(
         (sectionBox.current.clientHeight + 50) * multipleNum
@@ -37,7 +35,7 @@ const Projects: FC<IProjects> = ({ projectWindow, setProjectWindow }) => {
       <Container>
         <PortFolioUl>
           <Scrollbars autoHide={true} ref={scrollBar}>
-            {profileData.map((item, index) => (
+            {projectData.map((item: IBook, index: number) => (
               <PortFolioLi key={index} ref={sectionBox}>
                 <Section>
                   <header>

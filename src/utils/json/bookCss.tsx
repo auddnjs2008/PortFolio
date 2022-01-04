@@ -1,27 +1,33 @@
 const bookCss = [
   {
-    title: "visited Island",
+    title: "Profile",
     color: "#64bdc8",
     borderColor: "#4C8489",
     width: 35,
+    height: 175,
+    animation: true,
   },
   {
-    title: "two",
+    title: "2",
     color: "#5386B1",
     borderColor: "#28324F",
     width: 35,
+    height: 175,
   },
   {
-    title: "Three",
+    title: "3",
     color: "#2DE6FE",
     borderColor: "#6C8084",
     width: 30,
+    height: 180,
   },
   {
-    title: "4",
+    title: "Projects",
     color: "#A12801",
     borderColor: "#F89C85",
     width: 30,
+    height: 170,
+    animation: true,
   },
   {
     title: "5",
@@ -38,11 +44,12 @@ const bookCss = [
     height: 225,
   },
   {
-    title: "7",
+    title: "books",
     color: "#00B5B5",
     borderColor: "#3175B6",
     width: 25,
     height: 225,
+    animation: true,
   },
   {
     title: "8",
@@ -52,11 +59,12 @@ const bookCss = [
     height: 185,
   },
   {
-    title: "9",
+    title: "Concept",
     color: "#614c83",
     borderColor: "#565873",
     width: 25,
     height: 285,
+    animation: true,
   },
   {
     title: "10",
@@ -84,20 +92,22 @@ const bookCss = [
     color: "#DFCAB7",
     borderColor: "#C3A192",
     width: 20,
-    height: 110,
+    height: 180,
   },
   {
     title: "14",
     color: "#7D6427",
     borderColor: "#48433F",
     width: 20,
-    height: 110,
+    height: 180,
   },
   {
     title: "15",
     color: "#21120E",
     borderColor: "#120D0A",
     width: 20,
-    height: 150,
+    height: 250,
   },
 ];
+
+export default bookCss;

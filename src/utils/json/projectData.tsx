@@ -1,4 +1,4 @@
-const profileData = [
+const projectData = [
   {
     title: "병원예약 웹사이트",
     subtitle: "2021.08(3인 팀 프로젝트)",
@@ -24,6 +24,7 @@ const profileData = [
     backend: "AWS Lambda, AWS Api-gateway, AWS Dynamo DB",
     deployment: "Netlify",
     mobile: true,
+    color: "#5588FB",
   },
   {
     title: "영화정보 웹사이트",
@@ -46,6 +47,7 @@ const profileData = [
     backend: "Firebase",
     deployment: "Netlify",
     mobile: true,
+    color: "#E84118",
   },
   {
     title: "포켓몬 웹 게임",
@@ -67,6 +69,7 @@ const profileData = [
     frontend: "React, Typescript",
     deployment: "Netlify",
     mobile: false,
+    color: "#F0932B",
   },
   {
     title: "웹 실시간 채팅서비스",
@@ -90,7 +93,8 @@ const profileData = [
     backend: "NodeJs,MongoDB,express,socket.io",
     deployment: "HeroKu",
     mobile: true,
+    color: "#444439",
   },
 ];
 
-export default profileData;
+export default projectData;

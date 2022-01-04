@@ -1,25 +1,22 @@
 import React from "react";
-import { BookContainer, Container } from "./styles";
-
+import { Book, BookContainer, Container } from "./styles";
+import bookCss from "@utils/json/bookCss";
 const HomeBooks = () => {
   return (
     <Container>
       <BookContainer>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        {bookCss.map((item, key) => (
+          <Book
+            key={key}
+            color={item.color}
+            borderColor={item.borderColor}
+            width={item.width}
+            height={item.height}
+            animation={item.animation ? item.animation : false}
+          >
+            <span>{item.title}</span>
+          </Book>
+        ))}
       </BookContainer>
       <div className="bookSelf"></div>
     </Container>
