@@ -1,9 +1,13 @@
-import React, { useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import { Container } from "./styles";
 
-const BookLoading = () => {
+interface IBookLoading {
+  loadingColor: string;
+}
+
+const BookLoading: FC<IBookLoading> = ({ loadingColor }) => {
   return (
-    <Container>
+    <Container loadingColor={loadingColor}>
       <div className="left"></div>
       <div className="right">
         <div></div>

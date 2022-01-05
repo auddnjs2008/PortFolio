@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div`
+export const Container = styled.div<{ loadingColor: string }>`
   width: 100vw;
   height: 100vh;
   padding: 25px;
+  background-color: ${(props) => props.loadingColor};
   display: flex;
   overflow: hidden;
   .left,
@@ -22,6 +23,7 @@ export const Container = styled.div`
     100% {
       transform: perspective(200px) rotateY(-180deg);
       opacity: 0;
+      display: none;
       border-radius: 10px;
     }
   }

@@ -18,30 +18,31 @@ export const Container = styled.div`
   }
 
   ul {
-    min-width: 500px;
-    height: 500px;
+    min-width: 320px;
+    height: 320px;
     position: relative;
     transform-style: preserve-3d;
-    /* animation: slide 5s linear infinite; */
+    animation: slide 50s linear infinite;
 
+    // 사각형 90도 z 250  오각형 72도 z 344  육각형 60도 z 420
     li:nth-of-type(1) {
-      transform: rotateY(0deg) translateZ(250px);
+      transform: rotateY(0deg) translateZ(420px);
     }
 
     li:nth-of-type(2) {
-      transform: rotateY(90deg) translateZ(250px);
+      transform: rotateY(60deg) translateZ(420px);
     }
     li:nth-of-type(3) {
-      transform: rotateY(180deg) translateZ(250px);
+      transform: rotateY(120deg) translateZ(420px);
     }
     li:nth-of-type(4) {
-      transform: rotateY(270deg) translateZ(250px);
+      transform: rotateY(180deg) translateZ(420px);
     }
-  }
-
-  .pillar {
-    height: 100%;
-    width: 50px;
-    background-color: brown;
+    li:nth-of-type(5) {
+      transform: rotateY(240deg) translateZ(420px);
+    }
+    li:nth-of-type(6) {
+      transform: rotateY(300deg) translateZ(420px);
+    }
   }
 `;

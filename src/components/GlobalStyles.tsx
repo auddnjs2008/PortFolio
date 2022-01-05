@@ -5,6 +5,20 @@ const style = css`
   ${emotionReset};
   * {
     box-sizing: border-box;
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      all: unset;
+      background-color: black;
+      opacity: 0;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #3d3d3d;
+      border-radius: 100px;
+    }
   }
   a {
     text-decoration: none;
