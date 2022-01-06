@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Book, BookContainer, Container } from "./styles";
 import bookCss from "@utils/json/bookCss";
+import { useNavigate } from "react-router-dom";
 const HomeBooks = () => {
+  const navigator = useNavigate();
+  const onBookClick = useCallback(
+    (key: number) => (e: any) => {
+      switch (key) {
+        case 0:
+          navigator("/profile");
+          break;
+        case 3:
+          navigator("/projects");
+          break;
+        case 6:
+          navigator("/");
+          break;
+        case 8:
+          navigator("/concept");
+          break;
+        default:
+          return;
+      }
+    },
+    []
+  );
+
   return (
     <Container>
       <BookContainer>
@@ -13,6 +37,7 @@ const HomeBooks = () => {
             width={item.width}
             height={item.height}
             animation={item.animation ? item.animation : false}
+            onClick={onBookClick(key)}
           >
             <span>{item.title}</span>
           </Book>

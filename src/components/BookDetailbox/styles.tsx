@@ -17,7 +17,7 @@ export const BookInfoWrapper = styled.div`
   background-color: white;
   position: absolute;
 
-  animation: initAnimation 1s linear forwards;
+  //animation: initAnimation 1s linear forwards;
   @keyframes initAnimation {
     0% {
       transform-origin: 100%;

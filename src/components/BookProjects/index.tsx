@@ -1,10 +1,15 @@
 import Book from "@components/Book";
 import BookDetailbox from "@components/BookDetailbox";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import projectData from "@utils/json/projectData";
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { IBook } from "types";
-import { Container } from "./styles";
+
+import { Container, Controller } from "./styles";
 
 const BookProjects = () => {
   const CarouselBox = useRef<HTMLUListElement>(null);
@@ -17,6 +22,37 @@ const BookProjects = () => {
     []
   );
 
+  const onArrowClick = useCallback((e) => {
+    const nowCurrent = CarouselBox.current;
+    const direction = e.currentTarget.className;
+    if (nowCurrent) {
+      const originAngle = nowCurrent.style.transform
+        ? Number(nowCurrent.style.transform.split("deg")[0].split("(")[1])
+        : 0;
+      CarouselBox.current.style.transform = `rotateY(${
+        (direction === "left" ? 60 : -60) + originAngle
+      }deg)`;
+    }
+  }, []);
+
+  const onHomeClick = useCallback((e) => {
+    const nowCurrent = CarouselBox.current;
+    if (nowCurrent) {
+      nowCurrent.style.animation = "slide 1.5s linear forwards";
+      setTimeout(() => {
+        // nowCurrent.style.animation = "";
+        navigator("/");
+      }, 1500);
+    }
+  }, []);
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () => window.scrollTo(0, 0));
+
+  //   return () =>
+  //     window.removeEventListener("scroll", () => window.scrollTo(0, 0));
+  // }, []);
+
   return (
     <Container>
       <ul ref={CarouselBox}>
@@ -24,6 +60,15 @@ const BookProjects = () => {
           <Book key={key} bookInfo={item} onBookClick={onBookClick(key)}></Book>
         ))}
       </ul>
+      <Controller>
+        <span className="left" onClick={onArrowClick}>
+          <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
+        </span>
+        <span className="right" onClick={onArrowClick}>
+          <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
+        </span>
+        <div onClick={onHomeClick}></div>
+      </Controller>
     </Container>
   );
 };
