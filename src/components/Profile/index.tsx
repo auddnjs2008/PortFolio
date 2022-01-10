@@ -1,5 +1,5 @@
 import ProfileHeader from "@components/ProfileHeader";
-import ProfileMyInfo from "@components/ProfileMyInfo";
+import ProfileMyInfo from "@components/BookProfileMyInfo";
 import Folder from "@layouts/Folder";
 import React, { Dispatch, FC } from "react";
 import Scrollbars from "react-custom-scrollbars";
@@ -16,7 +16,6 @@ const Profile: FC<IProfile> = ({ profileWindow, setProfileWindow }) => {
       <Container>
         <Scrollbars>
           <ProfileHeader></ProfileHeader>
-          <ProfileMyInfo></ProfileMyInfo>
         </Scrollbars>
       </Container>
       <Navigator></Navigator>

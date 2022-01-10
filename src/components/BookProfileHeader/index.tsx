@@ -1,15 +1,20 @@
 import useInterval from "@hooks/useInterval";
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { FC, useCallback, useEffect, useRef } from "react";
 import { HeaderContainer } from "./styles";
 
-const BookProfileHeader = () => {
+interface IBookProfileHeader {
+  header: React.RefObject<HTMLDivElement>;
+}
+
+const BookProfileHeader: FC<IBookProfileHeader> = ({ header }) => {
   const textBox = useRef<HTMLDivElement>(null);
+  const speed = useRef(200);
 
   const makeSpan = useCallback((text, index) => {
     const span = document.createElement("span");
     span.innerText = text;
     span.style.animation = "smoke 0.5s linear forwards";
-    span.style.animationDelay = `${500 * index}ms`;
+    span.style.animationDelay = `${speed.current * index}ms`;
 
     if (textBox.current) {
       textBox.current.appendChild(span);
@@ -37,7 +42,7 @@ const BookProfileHeader = () => {
         for (let i = 0; i < twoLine.length; i++) {
           makeSpan(twoLine[i], i);
         }
-      }, 500 * 3);
+      }, speed.current * 10);
     }
   }, []);
 
@@ -45,13 +50,13 @@ const BookProfileHeader = () => {
     makeTextEffect();
     const repeater = setInterval(() => {
       makeTextEffect();
-    }, 14000);
+    }, 8000);
 
     return () => clearInterval(repeater);
   }, []);
 
   return (
-    <HeaderContainer>
+    <HeaderContainer ref={header}>
       <div ref={textBox}></div>
     </HeaderContainer>
   );
