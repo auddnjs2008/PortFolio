@@ -7,9 +7,27 @@ export const ProfileContainer = styled.div`
 `;
 
 export const Controller = styled.div`
-  border: 1px solid black;
-  position: absolute;
+  width: 200px;
+
+  position: fixed;
   bottom: 50px;
   left: 50%;
+  transform: translateX(-50%);
   z-index: 3;
+  display: flex;
+  justify-content: space-around;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(15, 15, 15, 0.8);
+    color: white;
+    font-size: 1.5rem;
+    &:active {
+      transform: scale(0.98);
+    }
+  }
 `;

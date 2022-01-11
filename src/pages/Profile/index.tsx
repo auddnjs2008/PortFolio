@@ -10,6 +10,7 @@ import { Controller } from "./styles";
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { ProfileContainer } from "./styles";
+import Contact from "@components/Contact";
 
 const Profile = () => {
   const [loading, setLoading] = useState(false);
@@ -41,10 +42,10 @@ const Profile = () => {
   useEffect(() => {
     if (header.current && myInfo.current) {
       if (page === 2 && direction === "right") {
-        header.current.style.height = "80%";
+        // header.current.style.height = "80%";
         header.current.style.transform = "rotateY(180deg)";
       } else if (page === 3 && direction === "right") {
-        myInfo.current.style.height = "80%";
+        // myInfo.current.style.height = "80%";
         myInfo.current.style.transform = "rotateY(180deg)";
       } else if (page === 2 && direction === "left") {
         myInfo.current.style.transform = "";
@@ -60,13 +61,14 @@ const Profile = () => {
     <ProfileContainer>
       <BookProfileHeader header={header}></BookProfileHeader>
       <BookProfileMyInfo myinfo={myInfo}></BookProfileMyInfo>
+      <Contact></Contact>
       <Controller>
-        <span onClick={onLeftClick}>
+        <div onClick={onLeftClick}>
           <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
-        </span>
-        <span onClick={onRightClick}>
+        </div>
+        <div onClick={onRightClick}>
           <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
-        </span>
+        </div>
       </Controller>
     </ProfileContainer>
   );
