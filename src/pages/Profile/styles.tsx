@@ -4,6 +4,12 @@ export const ProfileContainer = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+
+  &.viewScroll {
+    position: static;
+    overflow: auto;
+  }
 `;
 
 export const Controller = styled.div`
@@ -16,7 +22,7 @@ export const Controller = styled.div`
   z-index: 3;
   display: flex;
   justify-content: space-around;
-  div {
+  div:not(.viewToggle) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,5 +35,9 @@ export const Controller = styled.div`
     &:active {
       transform: scale(0.98);
     }
+  }
+
+  div.viewToggle {
+    cursor: pointer;
   }
 `;

@@ -13,12 +13,30 @@ export const HeaderContainer = styled.div`
   top: 0;
   transform-origin: 0;
   transform: perspective(500px);
-  z-index: 1;
-
+  z-index: 2;
+  padding: 20px;
+  text-align: center;
   transition: transform 1s ease-in-out;
+
+  &.viewScroll {
+    position: static;
+    top: unset;
+  }
 
   @keyframes smoke {
     0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes smokeAll {
+    0% {
+      opacity: 1;
+    }
+    50% {
       opacity: 0;
     }
     100% {

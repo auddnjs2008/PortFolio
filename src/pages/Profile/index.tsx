@@ -18,6 +18,8 @@ const Profile = () => {
   const [direction, setDirection] = useState<string>("");
   const header = useRef<HTMLDivElement>(null);
   const myInfo = useRef<HTMLDivElement>(null);
+  const wrapper = useRef<HTMLDivElement>(null);
+  const contact = useRef<HTMLDivElement>(null);
 
   const onLeftClick = useCallback(() => {
     if (page !== 1) {
@@ -40,17 +42,20 @@ const Profile = () => {
   }, []);
 
   useEffect(() => {
-    if (header.current && myInfo.current) {
+    if (header.current && myInfo.current && wrapper.current) {
       if (page === 2 && direction === "right") {
-        // header.current.style.height = "80%";
         header.current.style.transform = "rotateY(180deg)";
+        wrapper.current.style.overflow = "auto";
       } else if (page === 3 && direction === "right") {
-        // myInfo.current.style.height = "80%";
         myInfo.current.style.transform = "rotateY(180deg)";
+        wrapper.current.style.overflow = "hidden";
       } else if (page === 2 && direction === "left") {
         myInfo.current.style.transform = "";
+        myInfo.current.style.display = "flex";
+        wrapper.current.style.overflow = "auto";
       } else if (page === 1 && direction === "left") {
         header.current.style.transform = "";
+        wrapper.current.style.overflow = "hidden";
       }
     }
   }, [page]);
@@ -58,10 +63,10 @@ const Profile = () => {
   return loading ? (
     <BookLoading loadingColor="white" />
   ) : (
-    <ProfileContainer>
+    <ProfileContainer ref={wrapper}>
       <BookProfileHeader header={header}></BookProfileHeader>
       <BookProfileMyInfo myinfo={myInfo}></BookProfileMyInfo>
-      <Contact></Contact>
+      <Contact contact={contact}></Contact>
       <Controller>
         <div onClick={onLeftClick}>
           <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>

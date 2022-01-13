@@ -9,10 +9,15 @@ export const Container = styled.div`
   transform-origin: 0;
   transform: perspective(500px);
   transition: transform 1s ease-in-out;
-
+  z-index: 1;
   display: flex;
   justify-content: space-around;
   padding-top: 15px;
+
+  &.viewScroll {
+    position: static;
+    top: unset;
+  }
   section {
     box-shadow: 8px 16px 16px hsl(0deg 0% 0% /0.25);
     border-radius: 5px;
@@ -36,6 +41,7 @@ export const Container = styled.div`
   }
   @media (max-width: 520px) {
     height: auto;
+
     section {
       height: auto;
       margin-bottom: 10px;

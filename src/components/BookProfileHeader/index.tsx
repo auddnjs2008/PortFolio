@@ -22,35 +22,52 @@ const BookProfileHeader: FC<IBookProfileHeader> = ({ header }) => {
   }, []);
 
   const makeTextEffect = useCallback(() => {
-    const oneLine = "HI";
-    const twoLine = "This is a book about me";
+    const content =
+      "안녕하세요./꾸준히 만드는 걸 좋아하는/프론트엔드 개발자입니다.";
+    const contentArray = content.split("/");
+    let accumulater = 0;
 
-    if (textBox.current) {
-      textBox.current.innerHTML = "";
-      for (let i = 0; i < oneLine.length; i++) {
-        makeSpan(oneLine[i], i);
+    contentArray.forEach((item, index) => {
+      if (textBox.current) {
+        accumulater +=
+          index === 0
+            ? 0
+            : contentArray[index - 1].length * speed.current + 1200;
+        setTimeout(() => {
+          if (textBox.current) {
+            textBox.current.style.opacity = "1";
+            textBox.current.innerHTML = "";
+          }
+          for (let i = 0; i < item.length; i++) {
+            makeSpan(item[i], i);
+          }
+
+          if (textBox.current) {
+            textBox.current.style.animation =
+              "smoke 1s linear reverse forwards";
+
+            textBox.current.style.animationDelay = `${
+              item.length * speed.current
+            }ms`;
+          }
+
+          setTimeout(() => {
+            if (textBox.current) {
+              textBox.current.style.opacity = "0";
+              textBox.current.style.animation = "";
+              textBox.current.style.animationDelay = "";
+            }
+          }, item.length * speed.current + 1000);
+        }, accumulater);
       }
-      textBox.current.style.animation = "smoke 0.5s linear reverse forwards";
-      textBox.current.style.animationDelay = "1s";
-      setTimeout(() => {
-        if (textBox.current) {
-          textBox.current.innerHTML = "";
-          textBox.current.style.opacity = "1";
-          textBox.current.style.animation = "";
-          textBox.current.style.animationDelay = "";
-        }
-        for (let i = 0; i < twoLine.length; i++) {
-          makeSpan(twoLine[i], i);
-        }
-      }, speed.current * 10);
-    }
+    });
   }, []);
 
   useEffect(() => {
     makeTextEffect();
     const repeater = setInterval(() => {
       makeTextEffect();
-    }, 8000);
+    }, 11000);
 
     return () => clearInterval(repeater);
   }, []);
