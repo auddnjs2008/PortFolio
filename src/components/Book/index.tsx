@@ -12,7 +12,7 @@ const Book: FC<IBookComponent> = ({ bookInfo, onBookClick }) => {
     <Container backgroundColor={bookInfo.color} onClick={onBookClick}>
       <h1>{bookInfo.title}</h1>
       <h2>{bookInfo.subtitle}</h2>
-      <div></div>
+      {/* <div></div> */}
     </Container>
   );
 };

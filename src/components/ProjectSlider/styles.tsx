@@ -7,6 +7,9 @@ export const Container = styled.div`
   @media (max-width: 900px) {
     align-self: unset;
   }
+  @media (max-width: 500px) {
+    width: 300px;
+  }
 `;
 
 export const SliderContainer = styled.div`
@@ -27,6 +30,10 @@ export const SliderUl = styled.ul`
       width: 536px;
       height: 240px;
       object-fit: cover;
+      @media (max-width: 500px) {
+        width: 300px;
+        height: auto;
+      }
     }
   }
 `;

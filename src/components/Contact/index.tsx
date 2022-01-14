@@ -1,7 +1,8 @@
+import BookChain from "@components/BookChain";
 import { faBloggerB, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faAt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { ContactInfo, Container } from "./styles";
 
 interface IContact {
@@ -9,8 +10,15 @@ interface IContact {
 }
 
 const Contact: FC<IContact> = ({ contact }) => {
+  const [nightmode] = useState(
+    localStorage.getItem("nightmode")
+      ? localStorage.getItem("nightmode")
+      : "false"
+  );
+
   return (
-    <Container ref={contact}>
+    <Container ref={contact} nightmode={nightmode as string}>
+      <BookChain></BookChain>
       <ContactInfo>
         <h1>Contact</h1>
         <ul>

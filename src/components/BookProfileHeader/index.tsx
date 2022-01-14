@@ -1,5 +1,6 @@
+import BookChain from "@components/BookChain";
 import useInterval from "@hooks/useInterval";
-import React, { FC, useCallback, useEffect, useRef } from "react";
+import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 import { HeaderContainer } from "./styles";
 
 interface IBookProfileHeader {
@@ -9,7 +10,11 @@ interface IBookProfileHeader {
 const BookProfileHeader: FC<IBookProfileHeader> = ({ header }) => {
   const textBox = useRef<HTMLDivElement>(null);
   const speed = useRef(200);
-
+  const [nightMode] = useState(
+    localStorage.getItem("nightmode")
+      ? localStorage.getItem("nightmode")
+      : "false"
+  );
   const makeSpan = useCallback((text, index) => {
     const span = document.createElement("span");
     span.innerText = text;
@@ -73,8 +78,9 @@ const BookProfileHeader: FC<IBookProfileHeader> = ({ header }) => {
   }, []);
 
   return (
-    <HeaderContainer ref={header}>
-      <div ref={textBox}></div>
+    <HeaderContainer ref={header} nightmode={nightMode as string}>
+      <BookChain></BookChain>
+      <div className="header" ref={textBox}></div>
     </HeaderContainer>
   );
 };

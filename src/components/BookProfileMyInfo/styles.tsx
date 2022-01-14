@@ -1,11 +1,13 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div`
-  width: 100vw;
+export const Container = styled.div<{ nightmode: string }>`
+  width: 90vw;
   height: 100vh;
   position: absolute;
   top: 0;
-  background-color: #64bdc8;
+  right: 0;
+  background-color: ${(props) =>
+    props.nightmode === "true" ? "#0D1117" : "#F9FAFB"};
   transform-origin: 0;
   transform: perspective(500px);
   transition: transform 1s ease-in-out;
@@ -21,9 +23,15 @@ export const Container = styled.div`
   section {
     box-shadow: 8px 16px 16px hsl(0deg 0% 0% /0.25);
     border-radius: 5px;
-    background-color: white;
-    width: 40%;
+    background-color: ${(props) =>
+      props.nightmode === "true" ? "#0D1117" : "white"};
+    border: ${(props) =>
+      props.nightmode === "true" ? `1px solid #C9D1D9` : ""};
+
+    color: ${(props) => (props.nightmode === "true" ? "#C9D1D9" : "")};
+    width: 42%;
     padding: 20px;
+
     h1 {
       font-size: 2rem;
       font-weight: 600;
@@ -31,16 +39,16 @@ export const Container = styled.div`
       color: #f1c40f;
     }
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 1100px) {
     flex-direction: column;
     align-items: center;
     height: 150vh;
     section {
-      width: 90%;
+      width: 85%;
     }
   }
   @media (max-width: 520px) {
-    height: auto;
+    height: 200vh;
 
     section {
       height: auto;

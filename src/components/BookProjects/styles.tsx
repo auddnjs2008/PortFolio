@@ -1,13 +1,14 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div`
+export const Container = styled.div<{ nightmode: string }>`
   width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   perspective: 2000px;
-
+  background-color: ${(props) =>
+    props.nightmode === "true" ? "#0D1117" : "#F9FAFB"};
   @keyframes slide {
     from {
       transform: rotateY(0deg);
@@ -60,18 +61,25 @@ export const Container = styled.div`
 
 export const Controller = styled.div`
   position: absolute;
-  top: 0;
+  bottom: 20px;
   display: flex;
   align-items: center;
   span {
+    width: 50px;
+    height: 50px;
+    background-color: #161b22;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 30px;
+    margin-right: 40px;
     &:active {
       transform: scale(0.97);
     }
   }
-  span.left {
-    margin-right: 10px;
-  }
+
   div {
     width: 50px;
     height: 50px;

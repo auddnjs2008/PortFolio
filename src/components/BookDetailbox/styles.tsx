@@ -8,14 +8,22 @@ export const Container = styled.div<{ bookColor: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 500px) {
+  }
 `;
 
 export const BookInfoWrapper = styled.div`
   width: 700px;
+
   margin: 0 auto;
   box-shadow: 8px 16px 16px hsl(0deg 0% 0% /0.25);
   background-color: white;
   position: absolute;
+
+  @media (max-width: 700px) {
+    width: 370px;
+  }
 
   //animation: initAnimation 1s linear forwards;
   @keyframes initAnimation {

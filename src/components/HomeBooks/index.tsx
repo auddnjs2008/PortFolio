@@ -30,7 +30,7 @@ const HomeBooks = () => {
           navigator("/projects");
           break;
         case 6:
-          navigator("/");
+          navigator("/books");
           break;
         case 8:
           navigator("/concept");

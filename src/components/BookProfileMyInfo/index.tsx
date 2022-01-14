@@ -1,3 +1,4 @@
+import BookChain from "@components/BookChain";
 import {
   faCalendar,
   faMapMarkedAlt,
@@ -6,7 +7,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { AboutMe, Container, Skills } from "./styles";
 
 interface IBookProfileMyInfo {
@@ -14,8 +15,16 @@ interface IBookProfileMyInfo {
 }
 
 const BookProfileMyInfo: FC<IBookProfileMyInfo> = ({ myinfo }) => {
+  const [nightmode] = useState(
+    localStorage.getItem("nightmode")
+      ? localStorage.getItem("nightmode")
+      : "false"
+  );
+
   return (
-    <Container ref={myinfo}>
+    <Container ref={myinfo} nightmode={nightmode as string}>
+      <BookChain></BookChain>
+
       <AboutMe>
         <h1>About me</h1>
         <ul>

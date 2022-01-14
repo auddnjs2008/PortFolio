@@ -43,9 +43,16 @@ const Profile = () => {
 
   useEffect(() => {
     if (header.current && myInfo.current && wrapper.current) {
+      //z-index: 2 1 0
+
       if (page === 2 && direction === "right") {
         header.current.style.transform = "rotateY(180deg)";
         wrapper.current.style.overflow = "auto";
+        setTimeout(() => {
+          if (header.current) {
+            header.current.style.zIndex = "0";
+          }
+        }, 500); // 0 1 0
       } else if (page === 3 && direction === "right") {
         myInfo.current.style.transform = "rotateY(180deg)";
         wrapper.current.style.overflow = "hidden";
@@ -56,6 +63,11 @@ const Profile = () => {
       } else if (page === 1 && direction === "left") {
         header.current.style.transform = "";
         wrapper.current.style.overflow = "hidden";
+        setTimeout(() => {
+          if (header.current) {
+            header.current.style.zIndex = "2";
+          }
+        }, 500);
       }
     }
   }, [page]);

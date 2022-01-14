@@ -6,13 +6,18 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import projectData from "@utils/json/projectData";
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Container, Controller } from "./styles";
 
 const BookProjects = () => {
   const CarouselBox = useRef<HTMLUListElement>(null);
+  const [nightmode] = useState(
+    localStorage.getItem("nightmode")
+      ? localStorage.getItem("nightmode")
+      : "false"
+  );
 
   const navigator = useNavigate();
   const onBookClick = useCallback(
@@ -46,15 +51,8 @@ const BookProjects = () => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", () => window.scrollTo(0, 0));
-
-  //   return () =>
-  //     window.removeEventListener("scroll", () => window.scrollTo(0, 0));
-  // }, []);
-
   return (
-    <Container>
+    <Container nightmode={nightmode as string}>
       <ul ref={CarouselBox}>
         {projectData.map((item, key) => (
           <Book key={key} bookInfo={item} onBookClick={onBookClick(key)}></Book>

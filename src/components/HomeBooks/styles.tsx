@@ -12,16 +12,22 @@ export const Container = styled.div`
   height: 100vh;
   min-width: 400px;
   position: relative;
+  @media (max-width: 400px) {
+    width: 320px;
+  }
 `;
 
 export const Books = styled.div`
   position: absolute;
   top: 110px;
   min-width: 400px;
-  width: 50%;
+  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: end;
+  @media (max-width: 400px) {
+    width: 300px;
+  }
   div.bookSelf {
     width: 100%;
     height: 30px;
@@ -83,6 +89,9 @@ export const Ornaments = styled.div`
 
   height: 100px;
   min-width: 400px;
+  @media (max-width: 400px) {
+    width: 300px;
+  }
   @keyframes carMove {
     0% {
       transform: translateX(0);
@@ -112,10 +121,9 @@ export const Ornaments = styled.div`
   }
   div.bookSelf {
     height: 30px;
-    min-width: 400px;
+    width: 100%;
     border: 1px solid black;
     background-color: #d28c51;
-    width: 300px;
     position: absolute;
     bottom: 0;
   }
@@ -127,6 +135,9 @@ export const Marbles = styled.div`
   min-width: 400px;
   height: 100px;
   display: flex;
+  @media (max-width: 400px) {
+    width: 280px;
+  }
   img {
     position: absolute;
     left: 0;
@@ -188,10 +199,10 @@ export const Marbles = styled.div`
   }
   div.bookSelf {
     height: 30px;
-    min-width: 400px;
+    width: 100%;
     border: 1px solid black;
     background-color: #d28c51;
-    width: 300px;
+
     position: absolute;
     bottom: 0;
   }
@@ -205,6 +216,9 @@ export const LeftPillar = styled.div`
   width: 30px;
   height: 100vh;
   background-color: #d28c51;
+  @media (max-width: 400px) {
+    display: none;
+  }
 `;
 
 export const RightPillar = styled.div`
@@ -215,4 +229,7 @@ export const RightPillar = styled.div`
   height: 100vh;
   border: 1px solid black;
   background-color: #d28c51;
+  @media (max-width: 400px) {
+    display: none;
+  }
 `;
