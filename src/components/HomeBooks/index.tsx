@@ -81,7 +81,7 @@ const HomeBooks = () => {
         <Marbles>
           <img src="https://usecloud.s3.ap-northeast-1.amazonaws.com/portfolio/%EC%84%A0%EC%9D%B8%EC%9E%A5.png" />
           <div className="marbles">
-            {nightMode === "true" ? (
+            {nightMode !== "true" ? (
               <div className="nightMode marble" onClick={onNigtModeClick}>
                 <FontAwesomeIcon icon={faMoon}></FontAwesomeIcon>
               </div>

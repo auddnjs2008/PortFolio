@@ -10,29 +10,29 @@ export const Wrapper = styled.div<{ mode: string }>`
 `;
 export const Container = styled.div`
   height: 100vh;
-  min-width: 400px;
+  min-width: 320px;
+  width: 400px;
   position: relative;
-  @media (max-width: 400px) {
-    width: 320px;
-  }
 `;
 
 export const Books = styled.div`
   position: absolute;
   top: 110px;
-  min-width: 400px;
+  min-width: 320px;
   width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: end;
-  @media (max-width: 400px) {
-    width: 300px;
-  }
+
   div.bookSelf {
     width: 100%;
     height: 30px;
     border: 1px solid black;
     background-color: #d28c51;
+  }
+
+  @media (max-width: 400px) {
+    width: 100%;
   }
 `;
 
@@ -88,9 +88,10 @@ export const Ornaments = styled.div`
   top: 0;
 
   height: 100px;
-  min-width: 400px;
+  min-width: 320px;
+  width: 400px;
   @media (max-width: 400px) {
-    width: 300px;
+    width: 100%;
   }
   @keyframes carMove {
     0% {
@@ -107,6 +108,31 @@ export const Ornaments = styled.div`
     }
     100% {
       transform: translateX(0);
+    }
+  }
+
+  @keyframes carMove2 {
+    0% {
+      transform: translateX(0);
+    }
+    40% {
+      transform: translateX(-50px);
+    }
+    50% {
+      transform: translateX(-50px);
+    }
+    90% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @media (max-width: 400px) {
+    width: 100%;
+    img {
+      animation: carMove2 20s ease-in-out infinite;
     }
   }
 
@@ -132,11 +158,12 @@ export const Ornaments = styled.div`
 export const Marbles = styled.div`
   position: absolute;
   bottom: 10px;
-  min-width: 400px;
+  min-width: 320px;
+  width: 400px;
   height: 100px;
   display: flex;
   @media (max-width: 400px) {
-    width: 280px;
+    width: 100%;
   }
   img {
     position: absolute;
@@ -186,6 +213,9 @@ export const Marbles = styled.div`
     }
     .nightMode {
       background-color: yellow;
+    }
+    .morningMode {
+      background-color: white;
     }
     .github {
       background-color: #171515;
