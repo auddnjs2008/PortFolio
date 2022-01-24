@@ -19,7 +19,7 @@ export const HeaderContainer = styled.div<{ nightmode: string }>`
   z-index: 2;
   padding: 20px;
   text-align: center;
-  transition: transform 1s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   @media (max-width: 1000px) {
     height: 150vh;
     align-items: flex-start;

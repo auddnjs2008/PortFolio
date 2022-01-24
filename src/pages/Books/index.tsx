@@ -1,7 +1,13 @@
+import LifeBooks from "@components/LifeBooks";
 import React from "react";
+import { Container } from "./styles";
 
 const Books = () => {
-  return <div>책들</div>;
+  return (
+    <Container>
+      <LifeBooks></LifeBooks>
+    </Container>
+  );
 };
 
 export default Books;

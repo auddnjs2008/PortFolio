@@ -3,7 +3,7 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { FC, useCallback, useRef, useState } from "react";
+import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 import { Container, Controller, SliderContainer, SliderUl } from "./styles";
 
 interface IProjectSlider {
@@ -16,24 +16,47 @@ const ProjectSlider: FC<IProjectSlider> = ({ imgSrces }) => {
 
   const onLeftClick = useCallback(() => {
     if (scroll.current) {
-      if (scroll.current.scrollLeft <= 5) return;
+      if (
+        number === 1 ||
+        scroll.current.scrollLeft !== scroll.current.offsetWidth * (number - 1)
+      )
+        return;
       scroll.current.scrollLeft -= scroll.current.offsetWidth;
       setNumber((state) => state - 1);
     }
-  }, [scroll]);
+  }, [scroll, number]);
 
   const onRightClick = useCallback(() => {
     if (scroll.current) {
       if (
-        scroll.current.scrollLeft + scroll.current.offsetWidth >=
-        scroll.current.scrollWidth
+        number === imgSrces.length ||
+        scroll.current.scrollLeft !== scroll.current.offsetWidth * (number - 1)
       ) {
         return;
       }
       scroll.current.scrollLeft += scroll.current.offsetWidth;
       setNumber((state) => state + 1);
     }
-  }, [scroll]);
+  }, [scroll, number]);
+
+  const reSize = useCallback(() => {
+    if (scroll.current) {
+      scroll.current.style.scrollBehavior = "unset";
+      setTimeout(() => {
+        if (scroll.current) scroll.current.style.scrollBehavior = "smooth";
+      }, 300);
+      scroll.current.scrollLeft =
+        document.body.offsetWidth > 700
+          ? 536 * (number - 1)
+          : 300 * (number - 1);
+    }
+  }, [number]);
+
+  useEffect(() => {
+    window.addEventListener("resize", reSize);
+
+    return () => window.removeEventListener("resize", reSize);
+  }, [number]);
 
   return (
     <Container>

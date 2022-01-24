@@ -33,7 +33,7 @@ export const Container = styled.div<{ nightmode: string }>`
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.5s linear;
-    animation: up 1.5s linear;
+    /* animation: up 1.5s linear; */
     /* animation: slide 1.5s linear forwards; */
 
     // 사각형 90도 z 250  오각형 72도 z 344  육각형 60도 z 420

@@ -10,7 +10,7 @@ export const Container = styled.div<{ nightmode: string }>`
     props.nightmode === "true" ? "#0D1117" : "#F9FAFB"};
   transform-origin: 0;
   transform: perspective(500px);
-  transition: transform 1s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   z-index: 1;
   display: flex;
   justify-content: space-around;

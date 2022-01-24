@@ -52,6 +52,7 @@ export const Container = styled.div<{ nightmode: string }>`
   @media (max-width: 520px) {
     height: 200vh;
     justify-content: flex-start;
+
     section {
       margin-top: 50px;
       height: auto;
@@ -62,7 +63,7 @@ export const Container = styled.div<{ nightmode: string }>`
 
 export const ContactInfo = styled.section`
   background-color: white;
-  min-width: 350px;
+
   width: 40%;
 
   ul {

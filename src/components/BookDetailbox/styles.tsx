@@ -8,9 +8,6 @@ export const Container = styled.div<{ bookColor: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @media (max-width: 500px) {
-  }
 `;
 
 export const BookInfoWrapper = styled.div`
@@ -21,25 +18,8 @@ export const BookInfoWrapper = styled.div`
   background-color: white;
   position: absolute;
 
-  @media (max-width: 700px) {
-    width: 370px;
-  }
-
-  //animation: initAnimation 1s linear forwards;
-  @keyframes initAnimation {
-    0% {
-      transform-origin: 100%;
-      left: 0;
-      transform: rotateY(180deg);
-    }
-    80% {
-      left: 0;
-      transform: rotateY(0deg);
-    }
-    100% {
-      /* left: 50%;
-      transform: translateX(-50%); */
-    }
+  @media (max-width: 699px) {
+    width: 350px;
   }
 
   button {
@@ -52,6 +32,12 @@ export const BookInfoWrapper = styled.div`
     height: 40px;
     left: -100px;
     display: flex;
+
+    @media (max-width: 699px) {
+      transform: rotate(90deg);
+      left: -150px;
+    }
+
     div {
       width: 30%;
       height: 100%;
@@ -67,9 +53,6 @@ export const BookInfoWrapper = styled.div`
     }
     transform-origin: 100% 100%;
     transition: transform 0.5s linear;
-    &:hover {
-      transform: rotateY(40deg);
-    }
   }
 `;
 
@@ -83,6 +66,12 @@ export const Section = styled.section`
       margin-bottom: 20px;
     }
     margin-bottom: 70px;
+    @media (max-width: 699px) {
+      h2 {
+        font-size: 1.5rem;
+      }
+      margin-bottom: 0px;
+    }
   }
   div.section__main {
     display: flex;
@@ -113,15 +102,19 @@ export const Section = styled.section`
           }
         }
       }
+
+      @media (max-width: 699px) {
+        font-size: 13px;
+      }
     }
 
-    @media (max-width: 900px) {
+    /* @media (max-width: 900px) {
       flex-direction: column;
 
       .main__content {
         margin-top: 20px;
         margin-left: 0;
       }
-    }
+    } */
   }
 `;

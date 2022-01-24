@@ -52,7 +52,7 @@ const Profile = () => {
           if (header.current) {
             header.current.style.zIndex = "0";
           }
-        }, 500); // 0 1 0
+        }, 200); // 0 1 0
       } else if (page === 3 && direction === "right") {
         myInfo.current.style.transform = "rotateY(180deg)";
         wrapper.current.style.overflow = "hidden";
@@ -67,7 +67,7 @@ const Profile = () => {
           if (header.current) {
             header.current.style.zIndex = "2";
           }
-        }, 500);
+        }, 200);
       }
     }
   }, [page]);

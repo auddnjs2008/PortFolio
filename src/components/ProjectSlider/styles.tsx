@@ -7,7 +7,7 @@ export const Container = styled.div`
   @media (max-width: 900px) {
     align-self: unset;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     width: 300px;
   }
 `;
@@ -29,10 +29,10 @@ export const SliderUl = styled.ul`
     img {
       width: 536px;
       height: 240px;
-      object-fit: cover;
-      @media (max-width: 500px) {
+      object-fit: contain;
+      @media (max-width: 700px) {
         width: 300px;
-        height: auto;
+        height: 240px;
       }
     }
   }
