@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div<{ nightmode: string }>`
-  width: 90vw;
-  height: 100vh;
+  width: 60vw;
+  height: 90vh;
   position: absolute;
   top: 0;
   right: 0;

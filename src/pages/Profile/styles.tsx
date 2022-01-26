@@ -6,6 +6,7 @@ export const ProfileContainer = styled.div`
   height: 100vh;
   overflow: hidden;
   background-color: #161b22;
+
   &.viewScroll {
     position: static;
     overflow: auto;

@@ -8,6 +8,11 @@ export const Container = styled.div<{ bookColor: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
+  .toastBody {
+    font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+    color: #10171d; /* #10171D */
+    font-size: 0.875rem !important;
+  }
 `;
 
 export const BookInfoWrapper = styled.div`
@@ -22,7 +27,7 @@ export const BookInfoWrapper = styled.div`
     width: 350px;
   }
 
-  button {
+  button.close {
     all: unset;
     background-color: rgba(226, 224, 222, 0.5);
     padding: 0;
@@ -107,14 +112,5 @@ export const Section = styled.section`
         font-size: 13px;
       }
     }
-
-    /* @media (max-width: 900px) {
-      flex-direction: column;
-
-      .main__content {
-        margin-top: 20px;
-        margin-left: 0;
-      }
-    } */
   }
 `;

@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
 export const HeaderContainer = styled.div<{ nightmode: string }>`
-  width: 90vw;
-  height: 100vh;
+  width: 60vw;
+  height: 90vh;
   font-size: 60px;
   font-weight: 600;
   background-color: ${(props) =>

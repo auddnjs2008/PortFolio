@@ -1,16 +1,23 @@
 import BookLoading from "@components/BookLoading";
 import ProjectSlider from "@components/ProjectSlider";
 import projectData from "@utils/json/projectData";
-import React, { FC, useCallback, useEffect, useState } from "react";
-import Scrollbars from "react-custom-scrollbars";
-import { useLocation, useNavigate, useNavigationType } from "react-router-dom";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import { BookInfoWrapper, Container, Section } from "./styles";
+import "react-toastify/dist/ReactToastify.css";
 
 const BookDetailbox = () => {
   const location = useLocation();
   const navigator = useNavigate();
   const [loading, setLoading] = useState(true);
   const [key] = useState(Number(location.pathname.split("/")[2]));
+  const isPhonePossible = useRef(projectData[key].mobile);
+  const userPhoneAgent = useRef(window.navigator.userAgent.includes("Mobile"));
+
+  const onPhoneDomainLinkClick = useCallback(() => {
+    toast("모바일 접속이 불가능합니다.PC 접속을 부탁드립니다.");
+  }, []);
 
   const onButtonClick = useCallback(() => {
     navigator("/projects");
@@ -27,7 +34,7 @@ const BookDetailbox = () => {
   ) : (
     <Container bookColor={projectData[key].color}>
       <BookInfoWrapper>
-        <button onClick={onButtonClick}>
+        <button onClick={onButtonClick} className="close">
           <div></div>
           <span>책 덮기</span>
         </button>
@@ -60,12 +67,21 @@ const BookDetailbox = () => {
                 </div>
                 <div>
                   <h5>✔Domain</h5>
-                  <a
-                    href={"https://" + projectData[key].webpage}
-                    target="_blank"
-                  >
-                    {projectData[key].webpage}
-                  </a>
+                  {userPhoneAgent.current && !isPhonePossible.current ? (
+                    <span
+                      style={{ color: "#3498db", cursor: "pointer" }}
+                      onClick={onPhoneDomainLinkClick}
+                    >
+                      {projectData[key].webpage}
+                    </span>
+                  ) : (
+                    <a
+                      href={"https://" + projectData[key].webpage}
+                      target="_blank"
+                    >
+                      {projectData[key].webpage}
+                    </a>
+                  )}
                 </div>
                 <div>
                   <h5>✔Front-end</h5>
@@ -83,6 +99,18 @@ const BookDetailbox = () => {
             </div>
           </div>
         </Section>
+        <ToastContainer
+          bodyClassName="toastBody"
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </BookInfoWrapper>
     </Container>
   );
