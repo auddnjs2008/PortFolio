@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack serve --env development",
-    "build": "cross-env NODE_ENV=production TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" NODE_ENV=production webpack"
+    "start": "TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack serve --env development",
+    "build": "NODE_ENV=production TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" NODE_ENV=production webpack"
   },
   "author": "명원",
   "license": "ISC",
