@@ -6,11 +6,13 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Controller } from "./styles";
+import { Controller, Wrapper } from "./styles";
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { ProfileContainer } from "./styles";
 import Contact from "@components/Contact";
+import { Link } from "react-router-dom";
+import { HomeBtn } from "@components/LifeBooks/styles";
 
 const Profile = () => {
   const [loading, setLoading] = useState(false);
@@ -69,16 +71,23 @@ const Profile = () => {
           }
         }, 200);
       }
+      setTimeout(() => {
+        if (wrapper.current) wrapper.current.scrollTop = 0;
+      }, 200);
     }
   }, [page]);
 
   return loading ? (
     <BookLoading loadingColor="white" />
   ) : (
-    <ProfileContainer ref={wrapper}>
-      <BookProfileHeader header={header}></BookProfileHeader>
-      <BookProfileMyInfo myinfo={myInfo}></BookProfileMyInfo>
-      <Contact contact={contact}></Contact>
+    <>
+      <Wrapper>
+        <ProfileContainer ref={wrapper}>
+          <BookProfileHeader header={header}></BookProfileHeader>
+          <BookProfileMyInfo myinfo={myInfo}></BookProfileMyInfo>
+          <Contact contact={contact}></Contact>
+        </ProfileContainer>
+      </Wrapper>
       <Controller>
         <div onClick={onLeftClick}>
           <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
@@ -86,8 +95,11 @@ const Profile = () => {
         <div onClick={onRightClick}>
           <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
         </div>
+        <Link to="/">
+          <img src="https://usecloud.s3.ap-northeast-1.amazonaws.com/portfolio/homeIcon.png"></img>
+        </Link>
       </Controller>
-    </ProfileContainer>
+    </>
   );
 };
 

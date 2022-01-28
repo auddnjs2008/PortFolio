@@ -1,7 +1,4 @@
-import {
-  faChevronCircleDown,
-  faChevronCircleUp,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -99,10 +96,10 @@ const ConceptBook = () => {
         </ConceptSection>
         <Controller>
           <span onClick={onUpClick}>
-            <FontAwesomeIcon icon={faChevronCircleUp}></FontAwesomeIcon>
+            <FontAwesomeIcon icon={faChevronUp}></FontAwesomeIcon>
           </span>
           <span onClick={onDownClick}>
-            <FontAwesomeIcon icon={faChevronCircleDown}></FontAwesomeIcon>
+            <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
           </span>
           <Link to="/">
             <img

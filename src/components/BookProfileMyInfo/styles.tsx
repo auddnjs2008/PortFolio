@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div<{ nightmode: string }>`
-  width: 60vw;
-  height: 90vh;
+  width: 90vw;
+  height: 100vh;
   position: absolute;
   top: 0;
   right: 0;
@@ -10,6 +10,7 @@ export const Container = styled.div<{ nightmode: string }>`
     props.nightmode === "true" ? "#0D1117" : "#F9FAFB"};
   transform-origin: 0;
   transform: perspective(500px);
+  transform-style: preserve-3d;
   transition: transform 0.5s ease-in-out;
   z-index: 1;
   display: flex;
@@ -120,6 +121,10 @@ export const Skills = styled.section`
       width: 70px;
       height: 20px;
       box-shadow: rgb(0 0 0 / 6%) 0px 2px 4px 2px inset;
+      @media (max-width: 400px) {
+        width: 50px;
+        height: 20px;
+      }
     }
     div {
       justify-self: center;
@@ -128,12 +133,8 @@ export const Skills = styled.section`
       grid-template-rows: repeat(3, 1fr);
       gap: 10px;
 
-      border: 1px solid black;
-      padding: 20px;
+      padding: 10px;
       box-shadow: rgb(0 0 0 / 6%) 0px 2px 4px 2px inset;
     }
-  }
-
-  .backend {
   }
 `;

@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
 
 export const HeaderContainer = styled.div<{ nightmode: string }>`
-  width: 60vw;
-  height: 90vh;
+  width: 90vw;
+  height: 100vh;
   font-size: 60px;
   font-weight: 600;
+  line-height: 2;
   background-color: ${(props) =>
     props.nightmode === "true" ? "#0D1117" : "#F9FAFB"};
   color: ${(props) => (props.nightmode === "true" ? "#C9D1D9" : "black")};
@@ -16,6 +17,7 @@ export const HeaderContainer = styled.div<{ nightmode: string }>`
   right: 0;
   transform-origin: 0 50%;
   transform: perspective(500px);
+  transform-style: preserve-3d;
   z-index: 2;
   padding: 20px;
   text-align: center;
@@ -29,11 +31,14 @@ export const HeaderContainer = styled.div<{ nightmode: string }>`
   }
   @media (max-width: 520px) {
     height: 200vh;
+    font-size: 40px;
+    padding: 30px;
     align-items: flex-start;
     .header {
       margin-top: 100px;
     }
   }
+
   &.viewScroll {
     position: static;
     top: unset;

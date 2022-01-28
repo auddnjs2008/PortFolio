@@ -95,13 +95,20 @@ export const ConceptSection = styled.section<{ nightmode: string }>`
 export const Controller = styled.div`
   position: absolute;
   bottom: 0px;
-  right: -33px;
+  right: -35px;
   display: flex;
   flex-direction: column;
   span {
-    font-size: 30px;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
     margin-bottom: 10px;
-    color: #7f8c8d;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #343942;
+    color: white;
   }
   a {
     img {

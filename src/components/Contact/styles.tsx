@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div<{ nightmode: string }>`
-  width: 60vw;
-  height: 90vh;
+  width: 90vw;
+  height: 100vh;
   position: absolute;
   top: 0;
   right: 0;
@@ -29,6 +29,7 @@ export const Container = styled.div<{ nightmode: string }>`
     color: ${(props) => (props.nightmode === "true" ? "#C9D1D9" : "")};
 
     a {
+      word-break: break-all;
       color: #1f6feb;
     }
     h1 {
@@ -46,13 +47,11 @@ export const Container = styled.div<{ nightmode: string }>`
     height: 150vh;
     section {
       margin-top: 50px;
-      min-width: 350px;
     }
   }
   @media (max-width: 520px) {
     height: 200vh;
     justify-content: flex-start;
-
     section {
       margin-top: 50px;
       height: auto;
@@ -63,8 +62,7 @@ export const Container = styled.div<{ nightmode: string }>`
 
 export const ContactInfo = styled.section`
   background-color: white;
-
-  width: 40%;
+  width: 70%;
 
   ul {
     margin: 0 auto;
@@ -81,6 +79,10 @@ export const ContactInfo = styled.section`
       @media (max-width: 1000px) {
         font-size: 0.9rem;
       }
+      @media (max-width: 500px) {
+        grid-template-columns: unset;
+      }
+
       gap: 20px;
 
       font-size: 1.2rem;

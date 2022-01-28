@@ -78,7 +78,7 @@ export const Book = styled.li<{
   transition: transform 0.5s ease-in-out;
   &:hover {
     transform: ${(props) =>
-      props.animation ? `rotate(0) translateY(-100px)` : ""};
+      props.animation ? `rotate(0) translateY(-20px)` : ""};
     background-color: ${(props) => (props.animation ? "yellow" : "")};
   }
 `;
