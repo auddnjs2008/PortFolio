@@ -3,6 +3,7 @@ import path from "path";
 import webpack, { Configuration } from "webpack";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 import Dotenv from "dotenv-webpack";
 
 const isDevelopment = process.env.NODE_ENV !== "production";
@@ -68,6 +69,9 @@ const config: Configuration = {
     new ForkTsCheckerWebpackPlugin({ async: false }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: isDevelopment ? "development" : "production",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./index.html",
     }),
     new Dotenv(),
   ],
