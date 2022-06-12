@@ -1,6 +1,28 @@
 const projectData = [
   {
-    title: "포트폴리오 웹사이트",
+    title: "Best_Tour",
+    subtitle: "2022.05(1인 프로젝트)",
+    imgSrc: [
+      "https://usecloud.s3.ap-northeast-1.amazonaws.com/portfolio/bestTour-1.PNG",
+      "https://usecloud.s3.ap-northeast-1.amazonaws.com/portfolio/bestTour-2.PNG",
+      "https://usecloud.s3.ap-northeast-1.amazonaws.com/portfolio/bestTour-3.PNG",
+      "https://usecloud.s3.ap-northeast-1.amazonaws.com/portfolio/bestTour-4.PNG",
+      "https://usecloud.s3.ap-northeast-1.amazonaws.com/portfolio/bestTour-5.PNG",
+      "https://usecloud.s3.ap-northeast-1.amazonaws.com/portfolio/bestTour-6.PNG",
+    ],
+    webpage: "best-tour-jhtn26lzs-auddnjs2008.vercel.app",
+    contentOne: `자신만의 Place를 마커별로 저장하고 게시글로 공유할 수 있는 서비스 입니다.`,
+    contentTwo: `첫 NEXT.js 프로젝트이며 SSR과 ISR을 일부 적용시켰습니다. api 데이터는 SWR로 로컬 데이터는 리덕스로 관리하였습니다.`,
+    function: "SSR과 ISR과 CSR을 활용한 렌더링 방식, useSWR을 이용해 캐시 활용",
+    github: "github.com/auddnjs2008/Best_Tour",
+    frontend: "Next.js,TypeScript,TailWind CSS, Redux , SWR",
+    backend: "Prisma, PlanetScale, CloudFlare ",
+    deployment: "Vercel",
+    mobile: true,
+    color: "#FACC15",
+  },
+  {
+    title: "포트폴리오",
     subtitle: "2022.01(1인 프로젝트)",
     imgSrc: [
       "https://usecloud.s3.ap-northeast-1.amazonaws.com/portfolio/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A41.PNG",
@@ -37,7 +59,7 @@ const projectData = [
     졸업작품으로써 많은 노력을 들인 프로젝트입니다.`,
     contentTwo: ` Public cloud인 AWS의 여러 서비스를 경험하고 리덕스를
     사용하면서 리덕스의 상태관리에 좀 더 익숙해 질 수 있었던
-    프로젝트입니다.`,
+    프로젝트입니다.(현재는 AWS의 람다함수가 내려져 있어 서버기능이 불가합니다. 웹사이트에 들어갈시 프론트 화면은 볼 수 있습니다.)`,
     function: "지도 검색(kakao Map),관리자와 실시간chat,my page, 추천 알고리즘",
     github: "github.com/auddnjs2008/hospital-reservation-system",
     frontend: "React,TypeScript,Redux,Redux-Thunk,styled-component",
@@ -115,27 +137,27 @@ const projectData = [
     mobile: true,
     color: "#444439",
   },
-  {
-    title: "장소 저장 서비스",
-    subtitle: "2020.12(1인 프로젝트)",
-    imgSrc: [
-      "https://usecloud.s3.ap-northeast-1.amazonaws.com/portfolio/%EC%9E%A5%EC%86%8C%EC%A0%80%EC%9E%A5%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EC%86%8C%EC%A0%80%EC%9E%A51.PNG",
-      "https://usecloud.s3.ap-northeast-1.amazonaws.com/portfolio/%EC%9E%A5%EC%86%8C%EC%A0%80%EC%9E%A5%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EC%86%8C%EC%A0%80%EC%9E%A52.PNG",
-      "https://usecloud.s3.ap-northeast-1.amazonaws.com/portfolio/%EC%9E%A5%EC%86%8C%EC%A0%80%EC%9E%A5%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EC%86%8C%EC%A0%80%EC%9E%A53.PNG",
-    ],
-    webpage: "wizardly-hopper-833bfb.netlify.app/#/",
-    contentOne:
-      "지도를 활용한 첫 프로젝트이자  카카오톡의 다양한 api를 사용해 보았던 프로젝트 입니다.",
-    contentTwo:
-      "지도 api를 활용하여 다양한 서비스를  만들어 볼 수 있겠다는 생각을 하였습니다.",
-    function: "지도 찾기 기능, 장소 저장기능, 장소 공유 기능",
-    github: "github.com/auddnjs2008/Where",
-    frontend: "javascript, react",
-    backend: "firebase",
-    deployment: "HeroKu",
-    mobile: true,
-    color: "#A0D097",
-  },
+  // {
+  //   title: "장소 저장 서비스",
+  //   subtitle: "2020.12(1인 프로젝트)",
+  //   imgSrc: [
+  //     "https://usecloud.s3.ap-northeast-1.amazonaws.com/portfolio/%EC%9E%A5%EC%86%8C%EC%A0%80%EC%9E%A5%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EC%86%8C%EC%A0%80%EC%9E%A51.PNG",
+  //     "https://usecloud.s3.ap-northeast-1.amazonaws.com/portfolio/%EC%9E%A5%EC%86%8C%EC%A0%80%EC%9E%A5%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EC%86%8C%EC%A0%80%EC%9E%A52.PNG",
+  //     "https://usecloud.s3.ap-northeast-1.amazonaws.com/portfolio/%EC%9E%A5%EC%86%8C%EC%A0%80%EC%9E%A5%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%9E%A5%EC%86%8C%EC%A0%80%EC%9E%A53.PNG",
+  //   ],
+  //   webpage: "wizardly-hopper-833bfb.netlify.app/#/",
+  //   contentOne:
+  //     "지도를 활용한 첫 프로젝트이자  카카오톡의 다양한 api를 사용해 보았던 프로젝트 입니다.",
+  //   contentTwo:
+  //     "지도 api를 활용하여 다양한 서비스를  만들어 볼 수 있겠다는 생각을 하였습니다.",
+  //   function: "지도 찾기 기능, 장소 저장기능, 장소 공유 기능",
+  //   github: "github.com/auddnjs2008/Where",
+  //   frontend: "javascript, react",
+  //   backend: "firebase",
+  //   deployment: "HeroKu",
+  //   mobile: true,
+  //   color: "#A0D097",
+  // },
 ];
 
 export default projectData;
